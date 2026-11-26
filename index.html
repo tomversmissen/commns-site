@@ -183,6 +183,11 @@ textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
 .mission .lbl{color:var(--g2)}
 .mission p{font-size:clamp(28px,3.8vw,52px);margin:12px 0 0;max-width:24ch}
 @media(max-width:600px){.founders{grid-template-columns:minmax(0,1fr)}}
+.founder figcaption{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:12px}
+.founder figcaption p{flex-basis:100%}
+.ig{font-size:14px;font-weight:500;color:var(--g2);text-decoration:none;border-bottom:1px solid var(--g1);padding:6px 0}
+.ig:hover{color:var(--black);border-color:var(--black)}
+.ig:focus-visible{outline:2px solid var(--black);outline-offset:3px}
 </style>
 </head>
 <body>
@@ -338,6 +343,7 @@ textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
           <img src="img/founder-1.jpg" alt="Tom" loading="lazy" width="1200" height="1200">
           <figcaption>
             <b>Tom</b>
+            <a class="ig" href="https://www.instagram.com/tomversmissen/" target="_blank" rel="noopener">@tomversmissen</a>
             <p>“Ik ben verslaafd aan groei: zowel persoonlijk als zakelijk. Maar ik heb ervaren hoe eenzaam dat kan zijn, daar willen we verandering in brengen. Want het hoeft niet alleen.”</p>
           </figcaption>
         </figure>
@@ -345,6 +351,7 @@ textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
           <img src="img/founder-2.jpg" alt="Steffen" loading="lazy" width="1200" height="1200">
           <figcaption>
             <b>Steffen</b>
+            <a class="ig" href="https://www.instagram.com/steffenvissr/" target="_blank" rel="noopener">@steffenvissr</a>
           </figcaption>
         </figure>
       </div>
