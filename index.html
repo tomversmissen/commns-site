@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAADi0lEQVR42u3au0szSxQA8DlnH64mwZhOUIlCEJQIiqISEBsxxM7GYCnkL9DU/gM2NpZWaeyDiI9KEETFYEAQbSTRSHzEvMy6u7PzFYPh4xa3uBkuEeYUYXeSwPxmZ86cbBY8Hg/5zYHkl4cESIAESIAESIAESIAESIAESIAESIAESIAE/KdQxQ8JIgAAAD91Xdd13d8BAABEbDQatm3/3ej1ermkrQGIaNu2aZqhUGh6enpoaAgRC4VCJpO5vLwkhHg8HkppmwIQ0TRNv9+/vb29urrKh5wHY+z4+DiZTN7c3Ph8PuEGaP3mLiJalhUIBA4ODsbGxgghjuOoqsoPEBERS6VSNBq9uroSfh0EAACg0Wik0+loNPr9/d3R0UEIubu7I4QMDw8TQnhjNpudmZlpLu52SaOKotTr9VgsFo1GLcvSdf3l5WVxcXFiYmJ8fHxpaen19ZWTwuHw8vJyvV5XFKWNAADAGIvH44wxfrqxsXF4eKiqqqZp+/v7yWSyVCodHR1tbm5ms1nDMMSmIwFTyHXdi4uL0dFRQsj7+/vIyEitVkPE5grp7u7O5/OMMVVVDcPg1LbIQgDgOI7P5wsEArzl6empUqmoqtrsJaW0WCx6vV5EpJSK7f3/UUoAgKZpwteuGABjTFGUarX68fHBW/r7+/1+P6WUFxSIyGd8pVIpl8uNRgMR1Z8QolJ0XW9pCqpqvV6fnZ0Nh8OWZXm93vv7+/Pzc13XAaBarcbj8VQqFYlEQqFQrVZ7fHz8/glEbD0jtbqI+RWIxWLpdNq2bUVRyuVyIpE4OTmhlE5NTaVSqd7eXv7hWCxWKBRWVlb4Bre7u5vL5XRdb2VhiNmJv76+/rGR5fN5x3GCwSAhxDRNwzDOzs4ikcj6+vrW1hb/4tzc3Onpqc/nayWxilnEmqatra1lMhnee8dx+vr6gsEgTzuGYeRyuUQiQQixLMt1Xf5KKW19GQgAuK6radrb29vCwsLOzs7n5ycvhPgEM01zb29vfn7+4eEBAGzbtn5CyI4Gov6pb5bTg4ODk5OTAwMDiPj8/Hx9fX17e6tpWmdnp+M4Ho+np6eHMQYAxWLRsqwWLwIIfNSA503TNC3L+jtNdXV1Mcb4eFNKm9WokP0BhD8rwRm8Z4yxZteb7/LyCQCETCHxv4kZY/9S8XMSP5B3JSRAAiRAAiRAAiRAAiRAAiRAAn51/AFUMb/oyoyDSgAAAABJRU5ErkJggg==">
+<title>COMMNS · Join de community</title>
+<meta name="description" content="COMMNS — een community-first merk uit Nederland. Join de community.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: Route A, polished — monochrome sports editorial (Bandit, REPS, Nocturna), calm and premium, warm in the words.
+IDEA: a campaign cover: one dark motion-blurred photo, a clean white wordmark, small technical labels around it.
+PICTURE: full-bleed night photo with horizontal motion blur (your own flash photo replaces it via COVER_IMAGE).
+COLOUR and TYPE: black #0b0b0b, white, greys only; Inter Tight bold/tight for display, Inter for text.
+LAYOUT: full-bleed cover, light sign-up section, grey-to-black manifesto, contents, black footer.
+*/
+:root{color-scheme:light;--black:#0b0b0b;--white:#fff;--off:#f3f3f1;--g1:#d9d9d6;--g2:#8a8a86;--g3:#4a4a47;--wa:#1f8f4e}
+*{box-sizing:border-box;min-width:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--off);color:var(--black);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(40px,7vw,110px) max(5vw,18px)}
+.wrap{max-width:1200px;margin:0 auto}
+.disp{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;letter-spacing:-.035em;line-height:.95}
+.lbl{font-family:Inter,sans-serif;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+
+/* cover */
+.cover{position:relative;min-height:min(92vh,880px);background:var(--black);color:var(--white);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:20px max(4vw,18px)}
+.cover .bg{position:absolute;inset:0}
+.cover .bg svg,.cover .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .bg img{filter:grayscale(1) contrast(1.08)}
+.cover .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.05) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.6))}
+.cover.has-img svg{display:none}
+.row{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.row .lbl{opacity:.85}
+.center{position:relative;z-index:2;text-align:center;display:grid;justify-items:center;gap:22px}
+.word{font-size:clamp(64px,14vw,200px);margin:0;letter-spacing:-.055em;line-height:.85}
+.flank{display:flex;align-items:center;justify-content:center;gap:clamp(16px,4vw,48px);width:100%}
+.flank .lbl{opacity:.8;white-space:nowrap}
+.pill{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--white);color:var(--black);text-decoration:none;font:600 15px/1 Inter,sans-serif;transition:transform .2s ease}
+.pill:hover{transform:translateY(-2px)}
+.pill:focus-visible{outline:2px solid var(--white);outline-offset:4px}
+
+/* sign up */
+.join{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:start}
+.join h2{font-size:clamp(42px,6vw,84px);margin:14px 0 22px}
+.join .lead{font-size:clamp(17px,1.6vw,19px);color:var(--g3);max-width:46ch;margin:0 0 16px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--g1);margin-top:36px}
+.facts div{padding:14px 12px 0 0}
+.facts .lbl{color:var(--g2);display:block;margin-bottom:4px}
+.facts b{font:600 17px/1.2 "Inter Tight",sans-serif;letter-spacing:-.01em}
+
+.card{background:var(--white);border:1px solid var(--g1);border-radius:6px;padding:clamp(22px,3vw,36px)}
+.card h3{font-size:clamp(28px,3vw,36px);margin:0 0 8px}
+.card .sub{color:var(--g3);margin:0 0 24px}
+label{display:block;font-size:14px;font-weight:500;margin:0 0 6px}
+.field{margin-bottom:16px}
+input[type=text],input[type=email]{width:100%;font:16px/1.3 Inter,sans-serif;padding:13px 14px;border:1px solid var(--g1);border-radius:4px;background:var(--off);color:var(--black);min-height:50px}
+input:focus{outline:none;border-color:var(--black);background:var(--white)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{margin:0;font:500 14px/1 Inter,sans-serif;padding:0 16px;border:1px solid var(--g1);border-radius:999px;cursor:pointer;min-height:44px;display:flex;align-items:center;user-select:none}
+.chips input:checked+label{background:var(--black);border-color:var(--black);color:var(--white)}
+.chips input:focus-visible+label{outline:2px solid var(--black);outline-offset:2px}
+.opt{font-weight:400;color:var(--g2)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:400;color:var(--g3);margin:20px 0}
+.consent input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--black);flex:none}
+.btn{appearance:none;border:0;border-radius:999px;width:100%;min-height:56px;background:var(--black);color:var(--white);font:600 16px/1 Inter,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.btn[disabled]{opacity:.5;cursor:wait}
+.err{color:#b3261e;font-size:14px;margin:10px 0 0;min-height:1em}
+.done{display:none}
+.card.ok form{display:none}
+.card.ok .done{display:block}
+.done .lbl{color:var(--g2)}
+.done h3{margin-top:10px}
+.btn.wa{background:var(--wa);margin-top:20px}
+.btn.wa svg{width:22px;height:22px;flex:none}
+.steps{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px;font-size:15px;color:var(--g3)}
+.steps li{display:flex;gap:10px}
+.steps li::before{content:"—"}
+
+/* manifesto */
+.mani{background:linear-gradient(180deg,#cfcfcb 0%,#4b4b48 24%,#0b0b0b 62%);color:var(--white)}
+.mani .lbl{color:var(--black);opacity:.7}
+.lines{margin:clamp(40px,8vw,120px) 0 0}
+.lines div{font-size:clamp(38px,7vw,104px);padding:.02em 0}
+.lines div:nth-child(odd){font-style:italic;font-weight:800}
+.mani p{max-width:40ch;color:#bdbdb8;font-size:clamp(17px,1.6vw,19px);margin:clamp(28px,4vw,48px) 0 0}
+
+/* contents */
+.toc-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.toc-head h2{font-size:clamp(40px,5.4vw,72px);margin:0}
+.toc-head .lbl{color:var(--g2)}
+.toc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-top:1px solid var(--black)}
+.toc div{padding:20px 20px 0 0}
+.toc h3{margin-top:0}
+.toc .lbl{color:var(--g2)}
+.toc h3{font-size:clamp(26px,2.6vw,34px);margin:12px 0 10px}
+.toc p{margin:0;color:var(--g3)}
+.again{margin-top:clamp(36px,5vw,56px);max-width:320px}
+
+/* footer */
+.foot{background:var(--black);color:var(--white)}
+.foot h2{font-size:clamp(56px,11vw,160px);margin:0;letter-spacing:-.055em}
+.foot p{color:#a5a5a0;max-width:44ch;font-size:clamp(17px,1.6vw,19px);margin:18px 0 0}
+.foot .row{margin-top:clamp(48px,7vw,96px);padding-top:16px;border-top:1px solid #2a2a28;color:#8a8a86}
+
+@media(max-width:860px){.join{grid-template-columns:minmax(0,1fr)}.toc{grid-template-columns:minmax(0,1fr)}.toc div{padding-bottom:16px;border-bottom:1px solid var(--g1)}}
+@media(max-width:560px){.flank .lbl{display:none}.facts{grid-template-columns:minmax(0,1fr)}.facts div{padding:12px 0;border-bottom:1px solid var(--g1)}.cover{min-height:78vh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pill,.btn{transition:none}.pill:hover{transform:none}}
+
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.prog span{height:3px;background:var(--g1);border-radius:2px;transition:background .2s}
+.prog span.on{background:var(--black)}
+.stepno{color:var(--g2);display:block;margin-bottom:10px}
+.q{display:block;font-size:14px;font-weight:500;margin:0 0 8px}
+.chips.col{flex-direction:column;align-items:stretch}
+.chips.col label{border-radius:6px;padding:12px 14px;line-height:1.35;font-size:15px}
+textarea{width:100%;font:16px/1.45 Inter,sans-serif;padding:12px 14px;border:1px solid var(--g1);border-radius:4px;background:var(--off);color:var(--black);resize:vertical}
+textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
+.nav{display:flex;gap:10px;margin-top:8px}
+.nav .btn{flex:1}
+.other{margin-top:8px;width:100%;font:16px/1.3 Inter,sans-serif;padding:12px 14px;border:1px solid var(--black);border-radius:6px;background:var(--white);color:var(--black);min-height:48px}
+.other:focus{outline:2px solid var(--black);outline-offset:1px}
+.back{appearance:none;background:none;border:1px solid var(--g1);border-radius:999px;min-height:56px;padding:0 22px;font:500 15px/1 Inter,sans-serif;color:var(--black);cursor:pointer}
+.back:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.tagline{margin:0;font:500 clamp(15px,1.6vw,18px)/1.3 Inter,sans-serif;letter-spacing:.01em;opacity:.9}
+.cover{justify-content:space-between}
+.values{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;padding-top:20px;border-top:1px solid var(--g1)}
+.values span{font-size:14px;font-weight:500;padding:8px 14px;border:1px solid var(--g1);border-radius:999px;background:var(--white)}
+.who{background:var(--white)}
+.who-lead{font-size:clamp(17px,1.6vw,19px);color:var(--g3);max-width:52ch;margin:0 0 28px}
+.who-foot{font-size:clamp(24px,2.6vw,32px);margin:clamp(32px,4vw,48px) 0 0}
+.foot .again .pill{margin-top:8px}
+.pain{background:var(--white)}
+.pain-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,96px);align-items:start}
+.pain-head .lbl{color:var(--g2)}
+.pain-head h2{font-size:clamp(42px,6vw,84px);margin:14px 0 20px}
+.pain-head .lead{font-size:clamp(17px,1.6vw,19px);color:var(--g3);max-width:40ch;margin:0}
+.pain-list{list-style:none;margin:0;padding:0;counter-reset:p;border-top:1px solid var(--black)}
+.pain-list li{counter-increment:p;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:20px 0;border-bottom:1px solid var(--g1);font:500 clamp(19px,1.9vw,24px)/1.35 "Inter Tight",Inter,sans-serif;letter-spacing:-.01em}
+.pain-list li::before{content:counter(p,decimal-leading-zero);font:500 12px/2.4 Inter,sans-serif;letter-spacing:.08em;color:var(--g2)}
+.pain-end{margin-top:clamp(48px,7vw,96px)}
+.pain-end p{font-size:clamp(34px,5vw,68px);margin:0;max-width:20ch}
+.pain-end span{color:var(--g2)}
+@media(min-width:861px){.pain-head{position:sticky;top:32px}}
+@media(max-width:860px){.pain-grid{grid-template-columns:minmax(0,1fr)}}
+@font-face{font-family:"Commns Logo";src:url(data:font/woff2;base64,d09GMgABAAAAABQwABQAAAAAIpAAABPGAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbgQ4cKj9IVkFSgkMGYD9TVEFUghAnPABEL4E2EQgKhViEYTCkAgE2AiQDGAsOAAQgBY1UByAMBxuuIBNuLLzHAeDynSD7PxVvREgj1f1IbBim7sA9WDfEniZTZDpPGkEcvHTDIqmYLUzCuvogOkFNFqQMLD4oMI1Mwz5aV4vQ9K9/zgTddUTi7/HBjX1wK4pknF0ZxqHpBZHsVB6OaFWsRkgyC/X8fq+z591PBDJxSQmFB9f6qDKoyOoqVIAShQLjCOf/29ZfsmWoYUhBkAxj0CG1wQrqKfZhwdpkd190/HWkgctPa/F7Orazuyf+xTGrUGk/0mjphEa0EsiE+kNCQlM725t5PPz/qff9aLrF5hCpcNUK3OOleMcUKmAGsfCuPgCd+Yb0+j57cAmwvar6aKGmPlXtB7B24E0G4WQCveehdTV7IkJ6uasEhrJzX496mpH7U/sCjMezMbVXXlGGWHf7v8v23lZ1zF4nMEhCAvF87vbttnZRlAZEBwAhv/wPBOjAO03/f+nMb/2OWBd0qg28mQ2vJ0WLbbpubxQdK4CyQyQFZSgUNoc6wKJLUSbVkzegc5oN8ueaqw/RZOjdP5KWZvAAVbYSTObcspwhU2dGjUuNUZbW57/jERAF4A0hfKbP64fpcsBvi3SmAPtYurQE2DiAruKMo/niEqCCFMdh8oCgagkDWIHCwytYjQmw1qfX1skwzPYMWbWvoVWct+oQ92YBrbqTVaSEU8rbAE8BPgAy9vZXnghtrEHzaAmF6crfW34WLcFN3XbQwjVeV7vEtLz49d/9f30BzMJvYP2o/0EXFWGlwgDv5W2gcKr/6KX4IC/9u8bQtqZDQS8y5q5iXZSOv9TCjr+ShO+++dIOal/D8Htxta4m/P09+2ITAPz4gwFzOFvHDwMS2LN0RvO3T8WDaMmnHHasVhavdfDQHQcVWfuypdoUcPtwV6jjFre7O5oI9oD34llcgCn8Rq40i8PBxnG2hAPo30o/O46E0WTig+k1blbJEWe5ym3u8YRXfAAHoKyWDy6Y0wHsyBvyQ1NBDlHRymxUchBklzloV8UL1KiGCbzDplqch8qQ/656/HOZ1kjDFzfV01qZclI7Ow62y4fw22uEXmXoQ66DL6Ur2Kesz7+SqfOPegCQe6yfhsOaQUm6jFe6DmCA4zBBUxhElnawymQftmxf05waFu/bnJqLmwvgim8sWY4OZ9GI478X5AA7TDNTiKJZD1qEI2PH3bJsk2UwoIi87bw264vKdWtqxORrvmXE5W/+kkoooMWiRjKozc/6UkHr9ppGOujN52pk4ND/mp5Vhx87esr5CTRH1zr7DKGvpuVaCYmj6TPu3qswPpVu6bX3a+Hsmbcc8zLJo3+ZQCpjS5QzTtjbl7kbHJlcnLvHv0kZ33jS2SkGYHx1Pr5n3xBB5mVWNEwfu/TKf7Sn+67WuC5ZcBAubv4RhpyD/ye21foPtEvfF3ry9+F3inv/zPeFe1fejlSmbsMZPXzvZnD2K1LJCBmfRUd+cJZ65vz8sGpobs5wy9G/Y0jlXsvW4Q/ZkHPp+pmeR9ri7oubD/+ZDrz+O0cZz3NG2wiGjM3fbuivDb8ANllvj7kZC+l+MtOviR8hjZdp4ucpgxD9GXqfSiv98oMyLdQ0kbYBQR0rF6V4iZ+rbe26l09Gtc/ebelqinHbncHODR8q19LXu+PzimTPhkO5ORr19JWBJKeskH+ILo8K1Y3t0jPc/Ijb377pDch9jDXj9kCmPvn+HbsEEJrneaNjGBP43ZyPO8sbvmQXnR4WeD3/u0R53dedtaFafeJSu4EQn07/r7f9+yh+qyogoD1dFoFfG29ScGxKwfxQuEaQ4ZcP/1wTniL38vmDPb/E55v/qLpRE6qmILu1k7v8iYw7glsjUnjsHZfLZq995qxw8DHpCx9/OqZ16aOYcUhQN8wOdgcA6lIGbUqA+xp7De7VE0XqF0wttJ/o6vOfDtbpmV6SgBZkI0EuPJTDwWagjVDOQB4h6icA9Xt3zxWBVbeG6lZ4NYINB+chMcEFf4fn1cX5uXm+1dZKCir0/GLAKkxrC0l7hMtGDZmjOxU+LwQM1e6+1urD8dcT5q7vqbO+5Nrb5SEc3FqEWahRch4eelsik0XSYCKMRrO7NRyPYGFYW5Pf49JZL6UsYP2KjdzPGcefe2dP0EbxiCHs20KwDkGO8sCW0bFCQ5uMLxDLyL547j1Rbms8m6N/u9Ei8/1AwUkOnCMtJno7J/YN1za1iMWfPXFYaM2mWTOHTs4GqLGp2P4zV7OFGJ88SrcPGpT0gW+8bG2QsCHuquv+FaYjJUggl6zXoAd6wi+nox6LlN7udG4lAc4BN3G4GS5uuCiEdSgz3GGRSGG5J5njY5nDGLjEWreCm8ExZBig3ZXVZ2zHsM5gkLMQ0XCPSJT3JdtrUXM2TCWQgOk5ESPZ6JZxyQLzSSv2HfUKS/l8RAJaX05LKSwR8JacJtfS2nVfehBDaKudaHd0uiokh2a3zWDR699fTRQUEh+jX5qbEWb0CXLKGfjA0U5HyoQwXDV+lDXX1DdMN4jvzeWG2zG1WNVvjN+gR3QNlia+OvqspF/4+VyPFBrqNlt3spSL8QQqCiMIKiVTANhhtG9hSoRU03x2MB63/qHj317IhJUUSCglHvq2Kc+67b8XpzYz7tXzukN+KiQ3BqTQDpitqsMK8SAkylUlZOsylF7ooNGODTM1rt2vv+t+aMixSAPbZgQzC4es71Divn/iWWSXPbzCNEC+9UGntbcGM3XimGip9pT/p3DXQue9s3s5Qa5GDo0MCrAOZ8DZsAiLsAiLWm5SePHf0j6vb5ALId1VGyh4afRfIhEnm40q0Y6hKQ/MZhMvpWTJ5VWnUQN7T49if6PMiR1u6xBBasaIrkJ1Wi0mTytqyq9lS53mxkBQxz6wdvd+8+nNsf5kdn5ubrG8uREBZ4Ez+31ng3NdWQhtbZYMRRN9U/PL84gclvKMiFZvDsY6YwDtTIjy8XQtRmi3+hHHUn3cUveOH0gV5UjZR4RSz3f4QcdpvxBFEbneb4O9fg9abb85KXEBkmmijByflqXRFOaB6TRk3hq+0j41FArEmwpL9Y8vnn6siAxay6D8Cs7vDwckEZFZeNtiFap3YdRL2AxTiexA6jHoJjpOJgfSObuy6+pbGQNnvNRnudw9XvCyn1VJYmV2fPZn46/Jb7x9uf1R14Hd9sG1tXIpFyf6wg3n6yCABvVG4hNb6L63QbjbN4/GZgYOAm6KfBjMwaauWomkN7p9fw96fM1gNlmebwqr+XgR/HQ8b9XWmuRIkFQ73sMnw4BokW3WNObfMz/oBdU0QortRESF/Yv+imqH240ymcKMvHNHtfOBo9t7nZTFAirHc9NOo7r4t3P/+ftvzfpGi+r2hwtB5AGAmEcgyyUpEJhnKbW3PhfHfHspLLfB0P8Hn5q+UR3iaNqWy2M+c3AAF3V2tnOGh8+KthxOxoPqwsoE/NjIyPry8op8Euvr273eWJMkWelpmg4gdJgvUop3nVQ7CjcobB/6f6RRyGGulIuw1BNHGTq7O12M/N93VxE3hjTp9uuHwfe7vdrKypq4PZpMJWhaakx/BHD8YNuahyetaseb7YRLl7S47vuLlJu2c5mAOTtGo4A0/va5CW0QhiGIQhjCEIbwmKox+w95SRLZefErdnpJqURU/Nrfq7loN2vgrYYbq9TDE0I7r7dWaH6P3exFG+kRu0p4XN33o5F4Ymg0lfzg8CCNFvR54lggMzcnumIg+REGni5kmx81AJtmUqERrtMGUo4RnoaPk5vc6c1v2sJV1mTXuXkzRizWKpOefLjOT/WunquqbcKNDHBR8b4zEO+rMJu9jXopp6msPIKkx1U1yH/PHUmkVzflDxw8vLywUFBPdYeCJrlQCAG043HE/6AHnrssDslLxt+LBbys2h+B0kbV+DAd9kouv/5bsf8sNKmn8Ck3uR/zBIC8RRnlHMpElY9Z517RvnRygUQegWMfVWXaOc3uts7EwQMTRnMQPyqkghkQwfwQQ3thTlKS0+r/KXWpS+puYSLNsjq89N1IVTbJa4oe+n6gIn5IbAyAw3B8Rt9zYV5qmDK+dqKYd4jjAF2zDPrhv3gsCRdPwGENExWKlqpWPfzL4jlDlcMK4auR8Usizprt29MX5VkBk5CFDShAGqYgDdOu9Z0easYcZ9tHtv3/8Goj1k8FNfbOx2SibZO1rK8sLW7YXr6TvSWxJoWrIdzhcKyKe+Hz/Rnccu1UqHX6jXQi1BoXok77b6RqOdMQa6tX76r1vsjL6GhDOL0ioxvXSw55Ahv82Dyy1Q7CVxikbgbVcWlM6t/i/G+esuy94p25p5WAn2891fhpg8+rQORivwKI5hjtqsWPTGUC/Ph/h6fUmFjfiMC8QQdy5SKZNeDsUdMy1HKf0bn0YDtAVbLu7BeACg6t/yFxkxopY3rNfaOGBXvV/BMmbJ8yeHxmCcfIJSzZEkZ91k4uWYkAwkI1h+uDHYmRcjs4lYdXZJvF4UhHf2FzfW1VYjYZDxmkMIwocEwokL4IQiu5n+nRqJmNEkNYtF5Tzo1H5Fphn+Nc6ogRl2ciAcPvnTxGnQzmBSTksaZS2HAexecJTyKD6tjBf+TMDbHtplcyI3kcUEBo3duGB9GkjmjokfM//jFwvW1Setmj2cN+usVE5Du1eGKQsEestLfjq4uIXNIPeuBhK7SeugeyGoFJVQgwoTXh2qQRTffQuldsn9djMVaeDX1+0BK180BVShvQFNUxtQ1Eh4Ikl9bt+HkV9G1bvpqeC1RuXd/ooN/jlRAaEOZ7JKQxUi8IGWULdbVdOL+HKQixa7F/GUu0wICZtXLTGyNECXS6xRFEY3Y3Fc+H4s1ndj3lP/Genmt0BtmJY7DDlBOE2Eq1Q3XKbhMzmKiolunauy0m7sdziK+lpoJ8UOPGQvwxE9YL2v+zt3dWZrLLLhougIvgHjgfLoIL4Hy4yNd6qYfbEqzI/3dP8XN7kl02K5S8BjH7JLiyYqFXXYqvruBI/OkLwtKwKsz0d3YNku6Y1dxcCMz/EKqqZYwhicQfQF6MeWcW718biRF1vU6rkkkgttspiU6B0jmXJlCDG12XWUI2TCnu8Qgm6CFHokHYlXitf7fwHqMW5jOT0C/kKpiDZ8FO9A6zA+1g3V0sVub7pdLeGmoVGtnmH1Df79VMNDeAyJWc6q4Gcd674Lq5CA0B28HW6tsYQ2T7pROGVwdbKpUJ4z49c8IO81yq0uj0SsKC4/HAubh3RydMD9nlQlHtjAdhoaJCP1jso/Gu8UPd95Fg9c9gqsIBM0bpnEFFq4F1JNo7vT1ZmPVPzFNiDTCWYqdOWMopAIWaS+eT5WUWTzMi0ZpfIWWnoqHtxwI+Q1NSRJTQjQRsoqkcgSE+2lxWkBjVca2GhdDGHLtVwSz0c73HI1Z/WyozJ+SHUbOC40Vo7rhjfemlcv/66jSfxEI9mFEgyIzOliHqwoZeKf9+xMFBSFLYmlz42dhOoIg1eCqlIE29osyoB5Vs/GkHle7xKcJforqpcDZuz/xJzmaaPNkvtOI3izwQoUDivWOoR/IW5NwauJPpTap83+i5DDPh7itvvPYwPObptFd7uEMrDynFxvQKx32k9RkTXatxFs3E2fqdqak0twi01hOkLaj9A8e9Y0RikO5aWA85XkgDLKczIe/4mBKWI667r7t7hwLH707m5LrKAnpYG+8Uf0V0V+i6CU/P59X1/cJEn8PGJ0XxiEkjFjVtnUioZaoK6fi4pfM3JZChFpHKwnLBYSDDKe77kZEBZJRr+Jl3zKT/pWyj1lcgRi9YE1W3vNAP+zdMkwnDAIzXaGC9GwGHyp/zdUXr6dtzxNLDjFi8pVLUmmtrpVH9FaqdV+atqTbJaVb33WZQPNIoxoXQfM4w4+27YyJsJ5pyOOSssjVL2tdSft5epaGI8FMcTwS3aEIf8D/qYtfftP/z3LkL+V54tScz2UbVsutI7eHaU9iqg0cuObve6C4zk0tpHcuTPENV0NqKtGpsUUVAjz9XAWg5w7b4Ljn6DxQ9ADFGzX+r+qm+6d8z80/mDsDHCr4RAPi0z+GdeGpzmiNiAI8fA0DwC3ydb9dFWwX3EH5wBzaR364ZTxrqmwCCxp6nDgJF5diIHeAMSiIl+MnjnMDIhdxxB7igaLoNjSiv0WOLd9AxD4Q+ysHm+JlmciFBVFdQhLWJRj7XoUc796GjmA/QR5TX6KecPzBAvXQMkm8Dhmi2BcMUO4kRul3FKMtegTH6fQnjjPsHJhieFJNM14Yp2lvCNMtdgBm6ewKz4PsOc/jDY550dVjAdHMsEi+AJdz1YxnVHcKKus1hFd2dwBq2u4R1TLeJDdzdgE1U9xBb+HtopN1f/L12y1ZsKCqYMatEycG2TSqlTpD3Qoqy6RWsWu7Q6y2bk1+MlVRGWWnmsqJ9Yw2JJEtWhtMDrKxmFJTyjpdhkW3eIqued/qSgoyynlnKxv275Vm1Xd6g3UvKWxygzVuQE+8j6W/dgiwHCxsbu6AeXbrFKRZ5qc2VabpUOdw2KG/zSOHitiVK3dXTt2tIHn/5YQU5JXMmvdySNi9sXantSuuEFyrL8/O65OW8W9nivHz78n1Km1BeBHlA2p6fl8a20HeN2dqy1SVtLxtaDYDRLz9WNldaNigfwbJnRfEsHzaortzmyoFDyOdHgXZYGsm/Yd+Vci7L4FK+I91OKlq0AGayO1akQZfPyVZRliyu/FMh7gXYFsfPEiVwyLc1QID/Gfzv1zJZZT6K2sln3Nk=) format("woff2");font-style:italic;font-weight:100 900;font-stretch:62% 125%}
+.logo{margin:0;font:800 clamp(56px,12.5vw,184px)/1 "Commns Logo","Archivo",sans-serif;font-style:italic;font-stretch:125%;letter-spacing:-.04em;color:var(--white)}
+.get-lead{font-size:clamp(17px,1.6vw,19px);color:var(--g3);max-width:52ch;margin:0 0 28px}
+.toc{row-gap:28px}
+.how{margin-top:clamp(36px,5vw,56px);background:var(--white);border:1px solid var(--g1);border-radius:6px;padding:clamp(20px,3vw,32px)}
+.how .lbl{color:var(--g2)}
+.how ol{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;counter-reset:h}
+.how li{counter-increment:h;display:grid;gap:6px;align-content:start}
+.how li::before{content:counter(h);width:32px;height:32px;border-radius:50%;background:var(--black);color:var(--white);display:grid;place-items:center;font:600 14px/1 Inter,sans-serif;margin-bottom:6px}
+.how b{font:700 20px/1.2 "Inter Tight",Inter,sans-serif;letter-spacing:-.02em}
+.how span{color:var(--g3)}
+@media(max-width:860px){.how ol{grid-template-columns:minmax(0,1fr)}}
+#join{border-top:1px solid var(--g1)}
+@media(max-width:860px){
+  #card{order:-1}
+  .toc-head{flex-direction:column-reverse;align-items:flex-start;gap:10px;margin-bottom:20px}
+  .toc{row-gap:0}
+  .toc div{padding:14px 0}
+  .toc h3{font-size:22px;margin:0 0 6px}
+  .toc p{font-size:15px;line-height:1.5}
+}
+</style>
+</head>
+<body>
+
+<header class="cover" id="cover">
+  <div class="bg" id="bg">
+    <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <filter id="mb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60 6"/></filter>
+        <filter id="mb2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="120 14"/></filter>
+        <filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0"/></filter>
+        <radialGradient id="fl" cx="55%" cy="42%" r="60%"><stop offset="0" stop-color="#5a5a57"/><stop offset=".5" stop-color="#1c1c1b"/><stop offset="1" stop-color="#070707"/></radialGradient>
+      </defs>
+      <rect width="1600" height="1000" fill="url(#fl)"/>
+      <g filter="url(#mb2)" opacity=".55">
+        <rect x="180" y="610" width="1300" height="40" fill="#8d8d88"/>
+        <rect x="0" y="720" width="1600" height="90" fill="#2b2b29"/>
+      </g>
+      <g filter="url(#mb)" fill="#cfcfca">
+        <ellipse cx="640" cy="330" rx="70" ry="80" opacity=".55"/>
+        <rect x="560" y="410" width="170" height="260" rx="60" opacity=".42"/>
+        <rect x="600" y="650" width="50" height="210" rx="20" opacity=".35"/>
+        <ellipse cx="1010" cy="360" rx="58" ry="66" opacity=".38"/>
+        <rect x="945" y="425" width="140" height="230" rx="55" opacity=".3"/>
+        <rect x="980" y="640" width="44" height="190" rx="20" opacity=".26"/>
+        <ellipse cx="330" cy="400" rx="40" ry="46" opacity=".22"/>
+        <rect x="290" y="445" width="95" height="170" rx="40" opacity=".18"/>
+      </g>
+      <rect width="1600" height="1000" filter="url(#gr)"/>
+    </svg>
+  </div>
+  <div></div>
+  <div class="center">
+    <h1 class="logo" aria-label="commns">commns</h1>
+    <p class="tagline">Different people. Common values.</p>
+    <a class="pill" href="#join">Join de community <span aria-hidden="true">↓</span></a>
+  </div>
+  <div></div>
+</header>
+
+<main>
+  <section class="band pain">
+    <div class="wrap pain-grid">
+      <div class="pain-head">
+        <span class="lbl">Herken je dit?</span>
+        <h2 class="disp">Groeien kan eenzaam voelen.</h2>
+        <p class="lead">Hoe meer je bouwt aan wie je wilt zijn, hoe kleiner de groep die écht snapt waar je mee bezig bent.</p>
+      </div>
+      <ol class="pain-list" id="pain"></ol>
+    </div>
+    <div class="wrap pain-end">
+      <p class="disp">Je hebt genoeg mensen om je heen.<br><span>Je mist alleen jouw mensen.</span></p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <div class="toc-head">
+        <h2 class="disp">Wat je krijgt</h2>
+        <span class="lbl">01 — In de community</span>
+      </div>
+      <div class="toc" id="toc"></div>
+    </div>
+  </section>
+
+  <section class="band" id="join">
+    <div class="wrap join">
+      <div>
+        <span class="lbl" style="color:var(--g2)">02 — De visie</span>
+        <h2 class="disp">Groeien doe je niet alleen.</h2>
+        <p class="lead">Je hoeft niet te kiezen tussen groeien en mensen om je heen. Je hebt alleen de juiste mensen nodig.</p>
+        <p class="lead">COMMNS brengt mensen samen die dezelfde waarden delen. Mensen die bewust leven, met een doel bewegen en geloven dat ambitie en een rijk sociaal leven elkaar juist versterken.</p>
+        <p class="lead">Het begint hier, met een community uit Nederland. Find your people.</p>
+        <div class="values" id="values"></div>
+      </div>
+
+      <div class="card" id="card">
+        <form id="form" novalidate>
+          <div class="prog" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="lbl stepno" id="stepno">Stap 1 van 3</span>
+
+          <fieldset class="step" data-step="0">
+            <h3 class="disp">Join de community</h3>
+            <p class="sub">Drie korte vragen, daarna krijg je direct de link naar onze WhatsApp-community.</p>
+            <div class="field"><label for="name">Voornaam</label><input id="name" name="name" type="text" autocomplete="given-name"></div>
+            <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+            <div class="field"><label for="city">Woonplaats</label><input id="city" name="city" type="text" autocomplete="address-level2"></div>
+            <div class="field"><span class="q" id="q-age">Leeftijd</span><div class="chips" data-name="age" data-type="radio" aria-labelledby="q-age"></div></div>
+          </fieldset>
+
+          <fieldset class="step" data-step="1" hidden>
+            <h3 class="disp">Waar sta je nu?</h3>
+            <p class="sub">Zodat we iets bouwen dat echt bij je past. Er is geen goed of fout.</p>
+            <div class="field"><span class="q" id="q-sit">Wat past het best bij jouw situatie?</span><div class="chips col" data-name="situation" data-type="radio" aria-labelledby="q-sit"></div></div>
+            <div class="field"><span class="q" id="q-pain">Waar loop je tegenaan? <span class="opt">(kies wat past)</span></span><div class="chips col" data-name="challenges" data-type="checkbox" aria-labelledby="q-pain"></div></div>
+          </fieldset>
+
+          <fieldset class="step" data-step="2" hidden>
+            <h3 class="disp">Wat zou helpen?</h3>
+            <p class="sub">Laatste stap.</p>
+            <div class="field"><span class="q" id="q-help">Waar heb je het meest aan? <span class="opt">(kies wat past)</span></span><div class="chips col" data-name="helps" data-type="checkbox" aria-labelledby="q-help"></div></div>
+            <div class="field"><span class="q" id="q-train">Hoe train je?</span><div class="chips" data-name="training" data-type="checkbox" aria-labelledby="q-train"></div></div>
+            <div class="field"><span class="q" id="q-freq">Hoe vaak per week?</span><div class="chips" data-name="frequency" data-type="radio" aria-labelledby="q-freq"></div></div>
+            <div class="field"><label for="open">Wat zou COMMNS voor jou de moeite waard maken?</label><textarea id="open" name="open" rows="3"></textarea></div>
+            <label class="consent"><input type="checkbox" id="consent" checked> <span>Ja, mail me als eerste over events, meetups en product drops van COMMNS. Afmelden kan altijd.</span></label>
+          </fieldset>
+
+          <div class="nav">
+            <button class="back" type="button" id="prev" hidden>Terug</button>
+            <button class="btn" type="submit" id="submit">Volgende</button>
+          </div>
+          <p class="err" id="err" role="alert"></p>
+        </form>
+
+        <div class="done" aria-live="polite">
+          <span class="lbl">Je bent erbij ✓</span>
+          <h3 class="disp" id="hello">Welkom</h3>
+          <p class="sub" style="margin:0">Je laatste stap: join de WhatsApp-community via de knop hieronder. Runs, meet-ups en de eerste uitnodigingen komen daar als eerste.</p>
+          <a class="btn wa" id="wa" href="#" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.700c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.5-.4Z"/></svg>
+            Join de WhatsApp-community
+          </a>
+          <ul class="steps">
+            <li>Zeg hoi en vertel hoe jij traint.</li>
+            <li>Ken je iemand die erbij past? Deel deze pagina.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band who">
+    <div class="wrap">
+      <div class="toc-head">
+        <h2 class="disp">Voor wie is COMMNS?</h2>
+        <span class="lbl">03 — Voor wie</span>
+      </div>
+      <p class="lead who-lead">Niet bepaald door een sport, een leeftijd of een inkomen, maar door een mindset. Ambitieus, bewust, actief en altijd op zoek naar meer.</p>
+      <div class="toc" id="who"></div>
+      <p class="who-foot disp">Verschillende mensen. Eén gedeelde kern.</p>
+    </div>
+  </section>
+
+  <section class="band mani">
+    <div class="wrap">
+      <span class="lbl">04 — Waar we voor staan</span>
+      <div class="lines disp" id="lines"></div>
+      <p>We zijn niet tegen discipline of hard werken. We zijn tegen het idee dat groeien betekent dat je jezelf moet isoleren.</p>
+    </div>
+  </section>
+
+  <footer class="band foot">
+    <div class="wrap">
+      <h2 class="disp">Better, together.</h2>
+      <p>Voor wie bewust kiest hoe hij leeft, beweegt met een doel en gelooft dat beter worden niet betekent dat je het alleen moet doen.</p>
+      <div class="again"><a class="pill" href="#join">Join de community <span aria-hidden="true">↑</span></a></div>
+      <div class="row">
+        <span class="lbl">COMMNS</span>
+        <span class="lbl">© 2026</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+{
+  /* ====== SETTINGS — fill these in ====== */
+  const WHATSAPP_URL = "https://chat.whatsapp.com/YOUR-INVITE-CODE"; // invite link of your WhatsApp community
+  const FORM_ENDPOINT = ""; // Google Apps Script web-app URL; empty = nothing is stored (preview)
+  const COVER_IMAGE = "";   // your own flash / motion-blur photo, e.g. "cover.jpg" next to this file
+  /* ====================================== */
+
+  /* Questions — edit freely */
+  const options = {
+    age: ["Onder 22", "22–28", "29–35", "35+"],
+    situation: [
+      "Ik train meer en drink minder, maar mijn omgeving beweegt niet mee",
+      "Ik bouw aan mijn bedrijf of carrière en mis mensen met dezelfde drive",
+      "Ik heb een fijne groep, maar zoek meer mensen met dezelfde waarden",
+      "Ik ben net bezig met een nieuwe levensstijl",
+      "Iets anders"
+    ],
+    challenges: [
+      "Weinig mensen om mee te trainen",
+      "Mijn sociale leven draait nog om uitgaan en drinken",
+      "Motivatie volhouden in mijn eentje",
+      "Weinig mensen met dezelfde ambitie om me heen",
+      "Ik weet niet waar ik zulke mensen vind",
+      "Balans tussen werk, training en sociaal leven",
+      "Iets anders"
+    ],
+    helps: [
+      "Samen trainen: runs, Hyrox, sessies",
+      "Sociale events zonder dat alles om alcohol draait",
+      "Een groep om kennis en ervaringen te delen",
+      "Samen doelen stellen en elkaar scherp houden",
+      "Producten die bij deze levensstijl passen",
+      "Iets anders"
+    ],
+    training: ["Hardlopen", "Hyrox", "Kracht", "Van alles"],
+    frequency: ["1–2×", "3–4×", "5×+"]
+  };
+  const lines = ["Find your people.", "Show up together.", "Raise each other's standards.", "Share the pursuit.", "Grow together."];
+  const pain = [
+    "Je traint meer en drinkt minder, en merkt dat je oude vriendengroep daar niet in meegaat.",
+    "Op zaterdagavond zeg je vaker nee. En daarmee ook vaker nee tegen mensen.",
+    "Je werkt aan iets groots, maar bijna niemand om je heen begrijpt echt waarom.",
+    "Je traint vaak alleen, koptelefoon op, terwijl je eigenlijk iemand naast je zou willen.",
+    "Gesprekken gaan over het afgelopen weekend, niet over waar je naartoe wilt.",
+    "Je wil nieuwe mensen leren kennen, maar weet niet goed waar je ze vindt."
+  ];
+  const values = ["Groei", "Discipline", "Intentie", "Gezondheid", "Ambitie", "Authenticiteit", "Verbinding", "Kwaliteit"];
+  const who = [
+    ["De bouwer", "Bouwt aan een bedrijf, een carrière en zichzelf. Werkt vaak alleen en zoekt mensen met dezelfde drive, die hem uitdagen en inspireren."],
+    ["De hybrid performer", "Kracht, hardlopen, Hyrox. Serieus over voeding, herstel en prestaties. Wil onderdeel zijn van een actieve, ambitieuze groep."],
+    ["De nieuwe jij", "Bouwt nieuwe gewoontes en merkt dat de oude kring niet meer helemaal past. Zoekt nieuwe mensen, zonder zich anders voor te doen."]
+  ];
+  const toc = [
+    ["Fysieke events", "Samen rennen, trainen en daarna koffie. Meetups en sociale avonden waar het niet om alcohol draait."],
+    ["Mensen in dezelfde fase", "Kom in contact met mensen die net als jij bewust leven, ambitieus zijn en groeien. Je hoeft niets uit te leggen."],
+    ["Trainingsmaatjes", "Vind mensen bij jou in de buurt om mee te trainen, van een rustige duurloop tot een Hyrox-sessie."],
+    ["De WhatsApp-community", "Dagelijks contact: vragen stellen, ervaringen delen, afspreken en elkaar scherp houden."],
+    ["Als eerste erbij", "Events, meetups en drops zie en hoor je hier als eerste."],
+    ["Bouw mee", "Updates van Tom en Steffen, en echt inspraak in wat COMMNS wordt."]
+  ];
+
+  const OTHER = "Iets anders";
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  document.querySelectorAll(".chips[data-name]").forEach(box => {
+    const n = box.dataset.name, t = box.dataset.type;
+    box.setAttribute("role", t === "radio" ? "radiogroup" : "group");
+    box.innerHTML = options[n].map((o, i) =>
+      `<input type="${t}" name="${n}" id="${n}${i}" value="${esc(o)}"><label for="${n}${i}">${esc(o)}</label>`).join("");
+    if (options[n].includes(OTHER)) {
+      const f = document.createElement("input");
+      f.type = "text"; f.className = "other"; f.id = n + "-other"; f.hidden = true;
+      f.placeholder = "Vertel kort wat je bedoelt…";
+      f.setAttribute("aria-label", "Iets anders, namelijk");
+      box.after(f);
+      box.addEventListener("change", () => {
+        const on = !!box.querySelector(`input[value="${OTHER}"]:checked`);
+        f.hidden = !on;
+        if (on) f.focus();
+      });
+    }
+  });
+  document.getElementById("lines").innerHTML = lines.map(l => `<div>${esc(l)}</div>`).join("");
+  const cards = list => list.map(([h, t]) => `<div><h3 class="disp">${esc(h)}</h3><p>${esc(t)}</p></div>`).join("");
+  document.getElementById("toc").innerHTML = cards(toc);
+  document.getElementById("who").innerHTML = cards(who);
+  document.getElementById("pain").innerHTML = pain.map(p => `<li>${esc(p)}</li>`).join("");
+  document.getElementById("values").innerHTML = values.map(v => `<span>${esc(v)}</span>`).join("");
+
+  if (COVER_IMAGE) {
+    const img = new Image();
+    img.alt = "";
+    img.onload = () => document.getElementById("cover").classList.add("has-img");
+    img.src = COVER_IMAGE;
+    document.getElementById("bg").prepend(img);
+  }
+
+  const form = document.getElementById("form");
+  const card = document.getElementById("card");
+  const err = document.getElementById("err");
+  const btn = document.getElementById("submit");
+  const prev = document.getElementById("prev");
+  const steps = [...form.querySelectorAll(".step")];
+  const bars = [...form.querySelectorAll(".prog span")];
+  let cur = 0;
+  document.getElementById("wa").href = WHATSAPP_URL;
+
+  const otherText = n => (document.getElementById(n + "-other")?.value || "").trim();
+  const picked = n => [...form.querySelectorAll(`input[name="${n}"]:checked`)].map(i => i.value);
+  const answer = n => picked(n).map(v => v === OTHER && otherText(n) ? `${OTHER}: ${otherText(n)}` : v);
+  const otherMissing = n => picked(n).includes(OTHER) && !otherText(n);
+
+  const show = i => {
+    cur = i;
+    steps.forEach((s, k) => s.hidden = k !== i);
+    bars.forEach((b, k) => b.classList.toggle("on", k <= i));
+    document.getElementById("stepno").textContent = `Stap ${i + 1} van ${steps.length}`;
+    prev.hidden = i === 0;
+    btn.textContent = i === steps.length - 1 ? "Ik doe mee" : "Volgende";
+    err.textContent = "";
+    if (i > 0) card.scrollIntoView({behavior: "smooth", block: "start"});
+  };
+
+  const check = i => {
+    if (i === 0) {
+      if (!form.name.value.trim()) return ["Vul je voornaam in.", form.name];
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())) return ["Dat e-mailadres klopt niet helemaal.", form.email];
+      if (!form.city.value.trim()) return ["Vul je woonplaats in.", form.city];
+      if (!picked("age").length) return ["Kies je leeftijd."];
+    }
+    if (i === 1) {
+      if (!picked("situation").length) return ["Kies wat het best bij je situatie past."];
+      if (otherMissing("situation")) return ["Vul in wat je bedoelt bij “Iets anders”.", document.getElementById("situation-other")];
+      if (!picked("challenges").length) return ["Kies minstens één ding waar je tegenaan loopt."];
+      if (otherMissing("challenges")) return ["Vul in wat je bedoelt bij “Iets anders”.", document.getElementById("challenges-other")];
+    }
+    if (i === 2) {
+      if (!picked("helps").length) return ["Kies minstens één ding dat je zou helpen."];
+      if (otherMissing("helps")) return ["Vul in wat je bedoelt bij “Iets anders”.", document.getElementById("helps-other")];
+      if (!form.open.value.trim()) return ["Vertel ons kort wat COMMNS voor jou de moeite waard zou maken.", form.open];
+      if (!document.getElementById("consent").checked) return ["Vink het vakje aan, dan houden we je op de hoogte."];
+    }
+    return null;
+  };
+
+  const showDone = name => {
+    document.getElementById("hello").textContent = name ? `Welkom, ${name}` : "Welkom";
+    card.classList.add("ok");
+  };
+
+  try { const saved = localStorage.getItem("commns_joined"); if (saved) showDone(saved); } catch (e) {}
+
+  prev.addEventListener("click", () => show(cur - 1));
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const bad = check(cur);
+    if (bad) { err.textContent = bad[0]; if (bad[1]) bad[1].focus(); return; }
+    if (cur < steps.length - 1) { show(cur + 1); return; }
+
+    const name = form.name.value.trim();
+    const data = {
+      ts: new Date().toISOString(),
+      name, email: form.email.value.trim(), city: form.city.value.trim(),
+      age: picked("age").join(""), situation: answer("situation").join(""),
+      challenges: answer("challenges").join(" | "), helps: answer("helps").join(" | "),
+      training: picked("training").join(", "), frequency: picked("frequency").join(""),
+      open: form.open.value.trim(), source: location.hostname
+    };
+    btn.disabled = true; prev.disabled = true; btn.textContent = "Even geduld…";
+
+    if (FORM_ENDPOINT) {
+      try { await fetch(FORM_ENDPOINT, {method: "POST", mode: "no-cors", body: new URLSearchParams(data)}); }
+      catch (x) { /* still let them into the group */ }
+    }
+    try { localStorage.setItem("commns_joined", name); } catch (x) {}
+    showDone(name);
+  });
+
+  show(0);
+}
+</script>
+<script>
+/* Edit mode: Agentation toolbar (click elements, add notes, copy feedback for Claude).
+   Loads automatically on previews; on commns.nl only when the URL ends with #edit. */
+{
+  const live = /(^|\.)commns\.nl$/.test(location.hostname);
+  if (!live || location.hash === "#edit") {
+    const sc = document.createElement("script");
+    sc.src = "agentation.js";
+    document.body.appendChild(sc);
+  }
+}
+</script>
+</body>
+</html>
