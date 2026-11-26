@@ -171,6 +171,18 @@ textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
   .toc h3{font-size:22px;margin:0 0 6px}
   .toc p{font-size:15px;line-height:1.5}
 }
+.about{background:var(--white)}
+.about-lead{font-size:clamp(18px,1.8vw,22px);color:var(--g3);max-width:56ch;margin:0 0 clamp(28px,4vw,48px);line-height:1.5}
+.founders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,32px)}
+.founder{margin:0}
+.founder img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;background:var(--off)}
+.founder figcaption{padding-top:16px}
+.founder b{font:700 clamp(24px,2.4vw,30px)/1.1 "Inter Tight",Inter,sans-serif;letter-spacing:-.02em}
+.founder p{margin:8px 0 0;color:var(--g3);max-width:46ch}
+.mission{margin-top:clamp(40px,6vw,80px);padding-top:20px;border-top:1px solid var(--black)}
+.mission .lbl{color:var(--g2)}
+.mission p{font-size:clamp(28px,3.8vw,52px);margin:12px 0 0;max-width:24ch}
+@media(max-width:600px){.founders{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -314,9 +326,38 @@ textarea:focus{outline:none;border-color:var(--black);background:var(--white)}
     </div>
   </section>
 
+  <section class="band about">
+    <div class="wrap">
+      <div class="toc-head">
+        <h2 class="disp">Waarom we commns begonnen</h2>
+        <span class="lbl">04 — Wie zijn wij</span>
+      </div>
+      <p class="lead about-lead">We zijn Tom en Steffen. We bouwen commns omdat we het zelf hebben meegemaakt: je groeit, je kiest bewuster, en ineens past je oude omgeving niet meer helemaal.</p>
+      <div class="founders">
+        <figure class="founder">
+          <img src="img/founder-1.jpg" alt="Tom" loading="lazy" width="1200" height="1500">
+          <figcaption>
+            <b>Tom</b>
+            <p>“Ik ben verslaafd aan groei: zowel persoonlijk als zakelijk. Maar ik heb ervaren hoe eenzaam dat kan zijn, daar willen we verandering in brengen. Want het hoeft niet alleen.”</p>
+          </figcaption>
+        </figure>
+        <figure class="founder">
+          <img src="img/founder-2.jpg" alt="Steffen" loading="lazy" width="1200" height="1500">
+          <figcaption>
+            <b>Steffen</b>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="mission">
+        <span class="lbl">Onze missie</span>
+        <p class="disp">Een plek bouwen waar ambitie en verbinding samengaan. Eerst als community, en daarna op de baan, aan tafel en daarbuiten.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="band mani">
     <div class="wrap">
-      <span class="lbl">04 — Waar we voor staan</span>
+      <span class="lbl">05 — Waar we voor staan</span>
       <div class="lines disp" id="lines"></div>
       <p>We zijn niet tegen discipline of hard werken. We zijn tegen het idee dat groeien betekent dat je jezelf moet isoleren.</p>
     </div>
